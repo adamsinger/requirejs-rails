@@ -114,7 +114,7 @@ module Requirejs::Rails
           insertRequire = mod['insertRequire']
           mod['name'] = 'almond'
           mod['include'] = name
-          mod['insertRequire'] = insertRequire || name
+          mod['insertRequire'] = [insertRequire || name]
         end
       end
       self[:build_config]
