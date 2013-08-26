@@ -61,6 +61,7 @@ module Requirejs::Rails
         hasOnSave
         include
         inlineText
+        insertRequire
         locale
         mainConfigFile
         map
@@ -110,8 +111,10 @@ module Requirejs::Rails
           end
           mod = mods[0]
           name = mod['name']
+          insertRequire = mod['insertRequire']
           mod['name'] = 'almond'
           mod['include'] = name
+          mod['insertRequire'] = insertRequire || name
         end
       end
       self[:build_config]
